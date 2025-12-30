@@ -4,3 +4,5 @@ kind: Kustomization
 resources:
   - namespaces/media.yaml
   - namespaces/monitoring.yaml
+  - namespaces/storage.yaml
+  - storage/nfs_storageClass.yaml
