@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/tu-user/homelab-gitops
-    targetRevision: main
+    repoURL: https://github.com/Tuqui77/Homelab.git
+    targetRevision: Main
     path: apps/nginx
   destination:
     server: https://kubernetes.default.svc
