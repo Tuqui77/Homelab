@@ -16,3 +16,4 @@ resources:
   - networking/gateway.yaml
   - networking/gatewayClass.yaml
   - networking/cilium/ip-pool.yaml
+  - networking/cilium/l2-policy.yaml
