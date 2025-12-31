@@ -38,6 +38,20 @@ cgroup:
     enabled: false
   hostRoot: /sys/fs/cgroup
 
+bpf:
+  autoMount:
+    enabled: false
+
 k8sClientRateLimit:
   qps: 32
   burst: 33
+
+privileged: true
+
+securityContext:
+  capabilities:
+    cleanCiliumState: []
+    ciliumAgent: []
+
+sysctl:
+  enabled: false
