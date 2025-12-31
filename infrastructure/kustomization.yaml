@@ -12,3 +12,7 @@ resources:
   - storage/clusterRoleBinding.yaml
   - storage/nfs_subdir_external_provisioner.yaml
   - storage/serviceAccount.yaml
+
+  - networking/gateway.yaml
+  - networking/gatewayClass.yaml
+  - networking/cilium/ip-pool.yaml
