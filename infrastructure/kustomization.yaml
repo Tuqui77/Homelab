@@ -5,4 +5,9 @@ resources:
   - namespaces/media.yaml
   - namespaces/monitoring.yaml
   - namespaces/storage.yaml
+
   - storage/nfs_storageClass.yaml
+  - storage/clusterRole.yaml
+  - storage/clusterRoleBinding.yaml
+  - storage/nfs_subdir_external_provisioner.yaml
+  - storage/serviceAccount.yaml
