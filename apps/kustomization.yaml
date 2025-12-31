@@ -5,3 +5,4 @@ resources:
   - root.yaml
   - infra.yaml
   - argocd/route.yaml
+  - plex
