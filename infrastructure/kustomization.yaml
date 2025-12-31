@@ -13,3 +13,4 @@ resources:
   - storage/serviceAccount.yaml
 
   - networking/Cilium/app.yaml
+  - networking/Cilium/ip_pool.yaml
