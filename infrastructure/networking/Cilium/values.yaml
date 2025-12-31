@@ -46,8 +46,10 @@ k8sClientRateLimit:
   qps: 32
   burst: 33
 
-securityContext:
-  privileged: true
+ciliumAgent:
+  securityContext:
+    privileged: true
 
-cleanCiliumState:
-  enabled: false
+initContainers:
+  cleanCiliumState:
+    enabled: false
