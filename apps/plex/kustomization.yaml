@@ -6,4 +6,3 @@ resources:
   - manifests/service.yaml
   - manifests/pvc-config.yaml
   - manifests/pvc-media.yaml
-  - route.yaml
