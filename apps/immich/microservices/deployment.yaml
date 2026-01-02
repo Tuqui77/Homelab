@@ -18,6 +18,8 @@ spec:
           image: ghcr.io/immich-app/immich-server:release
           args: ["start.sh", "microservices"]
           env:
+            - name: IMMICH_PORT
+              value: "2283"
             - name: DB_HOSTNAME
               valueFrom:
                 secretKeyRef:
