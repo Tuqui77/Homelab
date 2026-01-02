@@ -18,6 +18,13 @@ spec:
       containers:
         - name: plex
           image: plexinc/pms-docker:latest
+          env:
+            - name: ADVERTISE_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
+            - name: ALLOWED_NETWORKS
+              value: "192.168.100.0/24,10.244.0.0/16"
           ports:
             - containerPort: 32400
           volumeMounts:
