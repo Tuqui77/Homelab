@@ -45,3 +45,15 @@ spec:
                 secretKeyRef:
                   name: immich-db
                   key: REDIS_HOSTNAME
+          volumeMounts:
+            - mountPath: /data/upload
+              name: uploads
+            - mountPath: /data/library
+              name: library
+      volumes:
+        - name: uploads
+          persistentVolumeClaim:
+            claimName: immich-uploads
+        - name: library
+          persistentVolumeClaim:
+            claimName: immich-library
