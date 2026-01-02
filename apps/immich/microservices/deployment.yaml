@@ -18,6 +18,10 @@ spec:
           image: ghcr.io/immich-app/immich-server:release
           args: ["start.sh", "microservices"]
           env:
+            - name: UPLOAD_LOCATION
+              value: /usr/src/app/upload
+            - name: LIBRARY_LOCATION
+              value: /usr/src/app/library
             - name: IMMICH_PORT
               value: "2283"
             - name: DB_HOSTNAME
@@ -46,9 +50,9 @@ spec:
                   name: immich-db
                   key: REDIS_HOSTNAME
           volumeMounts:
-            - mountPath: /data/upload
+            - mountPath: /usr/src/app/upload
               name: uploads
-            - mountPath: /data/library
+            - mountPath: /usr/src/app/library
               name: library
       volumes:
         - name: uploads

@@ -20,6 +20,10 @@ spec:
             - containerPort: 3001
               name: http
           env:
+            - name: UPLOAD_LOCATION
+              value: /usr/src/app/upload
+            - name: LIBRARY_LOCATION
+              value: /usr/src/app/library
             - name: IMMICH_PORT
               value: "2283"
             - name: DB_HOSTNAME
@@ -55,9 +59,9 @@ spec:
               cpu: "2000m"
               memory: "4Gi"
           volumeMounts:
-            - mountPath: /data/upload
+            - mountPath: /usr/src/app/upload
               name: uploads
-            - mountPath: /data/library
+            - mountPath: /usr/src/app/library
               name: library
       volumes:
         - name: uploads
