@@ -20,6 +20,8 @@ spec:
             - containerPort: 3001
               name: http
           env:
+            - name: IMMICH_PORT
+              value: "2283"
             - name: DB_HOSTNAME
               valueFrom:
                 secretKeyRef:
