@@ -7,6 +7,9 @@ resources:
   - namespaces/storage.yaml
   - namespaces/networking.yaml
 
+  - referenceGrants/ns-argocd.yaml
+  - referenceGrants/ns-media.yaml
+
   - storage/nfs_storageClass.yaml
   - storage/clusterRole.yaml
   - storage/clusterRoleBinding.yaml
