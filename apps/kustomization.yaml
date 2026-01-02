@@ -6,3 +6,4 @@ resources:
   - infra.yaml
   - argocd/route.yaml
   - plex
+  - immich

@@ -1,0 +1,15 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: immich
+  namespace: media
+spec:
+  hostnames:
+  - immich.homelab.local
+  parentRefs:
+    - name: homelab-gateway
+      namespace: networking
+  rules:
+    - backendRefs:
+      - name: immich
+        port: 2283
