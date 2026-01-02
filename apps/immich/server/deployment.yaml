@@ -55,9 +55,9 @@ spec:
               cpu: "2000m"
               memory: "4Gi"
           volumeMounts:
-            - mountPath: /usr/src/app/upload
+            - mountPath: /data/upload
               name: uploads
-            - mountPath: /usr/src/app/library
+            - mountPath: /data/library
               name: library
       volumes:
         - name: uploads
