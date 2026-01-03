@@ -34,15 +34,15 @@ The cluster always converges to the declared state.
 
 ## Access to Services
 
-Services are exposed using Gateway API (Cilium) and local DNS:
+Services are exposed using Gateway API (Cilium) and cloudflare DNS:
 
 Service	URL
 
-ArgoCD	https://argocd.homelab.local
+ArgoCD	https://argocd.tomasmerino.com
 
-Plex	http://plex.homelab.local
+Immich	https://immich.tomasmerino.com
 
-Immich	https://immich.homelab.local
+Using a personal domain to terminate TLS certificates using cert-manager
 
 ---
 
