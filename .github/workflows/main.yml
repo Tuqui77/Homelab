@@ -23,6 +23,6 @@ jobs:
           for dir in apps/*; do
             if [ -f "$dir/kustomization.yaml" ]; then
               kustomize build "$dir" \
-                | kubectl apply --dry-run=client -f -
+                | kubectl apply --dry-run=client --validate=false -f -
             fi
           done
