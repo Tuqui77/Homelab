@@ -12,3 +12,12 @@ spec:
       allowedRoutes:
         namespaces:
           from: All
+    - name: https
+      protocol: HTTPS
+      port: 443
+      hostname: "*.tomasmerino.com"
+      tls:
+        mode: Terminate
+        cerificateRefs:
+        - kind: Secret
+          name: wildcard-tls
