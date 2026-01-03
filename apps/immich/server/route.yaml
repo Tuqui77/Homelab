@@ -5,10 +5,11 @@ metadata:
   namespace: media
 spec:
   hostnames:
-  - immich.homelab.local
+  - immich.tomasmerino.com
   parentRefs:
     - name: homelab-gateway
       namespace: networking
+      sectionName: http
   rules:
     - backendRefs:
       - name: immich

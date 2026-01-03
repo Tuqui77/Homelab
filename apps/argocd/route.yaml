@@ -7,8 +7,9 @@ spec:
   parentRefs:
     - name: homelab-gateway
       namespace: networking
+      sectionName: http
   hostnames:
-    - argocd.homelab.local
+    - argocd.tomasmerino.com
   rules:
     - backendRefs:
         - name: argocd-server
