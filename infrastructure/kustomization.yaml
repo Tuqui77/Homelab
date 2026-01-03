@@ -22,3 +22,5 @@ resources:
   - networking/cilium/l2-policy.yaml
 
   - sealed-secrets/controller.yaml
+
+  - cert-manager
