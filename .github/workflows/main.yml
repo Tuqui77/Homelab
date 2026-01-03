@@ -10,19 +10,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: azure/setup-kubectl@v4
-      - uses: imranismail/setup-kustomize@v2
-
-      - name: Validate infrastructure
+      
+      # Instalamos herramientas necesarias
+      - name: Setup Tools
         run: |
-          kustomize build infrastructure \
-            | kubectl apply --dry-run=client -f -
+          curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
+          sudo mv kustomize /usr/local/bin/
+          wget https://github.com/yannh/kubeconform/releases/latest/download/kubeconform-linux-amd64.tar.gz
+          tar xf kubeconform-linux-amd64.tar.gz
+          sudo mv kubeconform /usr/local/bin/
 
-      - name: Validate apps
+      - name: Validate Infrastructure Sub-directories
         run: |
-          for dir in apps/*; do
-            if [ -f "$dir/kustomization.yaml" ]; then
-              kustomize build "$dir" \
-                | kubectl apply --dry-run=client --validate=false -f -
-            fi
+          # Buscamos recursivamente todos los directorios que tengan un kustomization.yaml
+          find infrastructure -type f -name "kustomization.yaml" -exec dirname {} \; | while read dir; do
+            echo "--- Validating Infrastructure: $dir ---"
+            kustomize build "$dir" | kubeconform -summary -strict -ignore-missing-schemas
+          done
+
+      - name: Validate Apps Sub-directories
+        run: |
+          find apps -type f -name "kustomization.yaml" -exec dirname {} \; | while read dir; do
+            echo "--- Validating App: $dir ---"
+            kustomize build "$dir" | kubeconform -summary -strict -ignore-missing-schemas
           done
