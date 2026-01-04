@@ -71,10 +71,24 @@ jobs:
       # -----------------------------
       # Server-side validation
       # -----------------------------
-      - name: Server-side validation (kubectl dry-run)
+      - name: Server-side validation — namespaces
         run: |
-          set -e
-          kustomize build . \
+          kustomize build infrastructure/namespaces \
+            | kubectl apply --dry-run=server -f -
+
+      - name: Server-side validation — CRDs
+        run: |
+          kustomize build infrastructure/crds \
+            | kubectl apply --dry-run=server -f -
+
+      - name: Server-side validation — infrastructure
+        run: |
+          kustomize build infrastructure \
+            | kubectl apply --dry-run=server -f -
+
+      - name: Server-side validation — apps
+        run: |
+          kustomize build apps \
             | kubectl apply --dry-run=server -f -
 
       # -----------------------------
