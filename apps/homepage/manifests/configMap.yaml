@@ -19,22 +19,33 @@ data:
     - Developer:
         - Github:
             - abbr: GH
-              href: https://github.com/
+              href: https://github.com/Tuqui77/Homelab
+              
   services.yaml: |
-    - My First Group:
-        - My First Service:
-            href: http://localhost/
-            description: Homepage is awesome
+    - NAS:
+        - Qnap:
+            icon: qnap.png
+            href: http://192.168.100.56:8080
+            description: Panel de control NAS Qnap
+        - Pi-Hole:
+            icon: pihole.png
+            href: http://192.168.100.77/admin/login
+            description: Panel de control Pi-Hole NAS
 
-    - My Second Group:
-        - My Second Service:
-            href: http://localhost/
-            description: Homepage is the best
+    - Cluster Kubernetes:
+        - ArgoCD:
+            icon: argocd.png
+            href: https://argocd.tomasmerino.com
+            description: ArgoCD dashboard
+        
+        - Immich:
+            icon: immich.png
+            href: https://immich.tomasmerino.com
 
-    - My Third Group:
-        - My Third Service:
-            href: http://localhost/
-            description: Homepage is 😎
+        - Plex:
+            icon: plex.png
+            href: http://192.168.100.156:32400
+
   widgets.yaml: |
     - kubernetes:
         cluster:
