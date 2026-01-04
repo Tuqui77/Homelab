@@ -6,6 +6,7 @@ resources:
   - namespaces/monitoring.yaml
   - namespaces/storage.yaml
   - namespaces/networking.yaml
+  - namespaces/dashboard.yaml
 
   - referenceGrants/ns-argocd.yaml
   - referenceGrants/ns-media.yaml
