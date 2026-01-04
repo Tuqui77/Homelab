@@ -7,5 +7,5 @@ metadata:
   labels:
     app.kubernetes.io/name: homepage
   annotations:
-    kubernetes.io/service-account-name: homepage
+    kubernetes.io/service-account.name: homepage
     
