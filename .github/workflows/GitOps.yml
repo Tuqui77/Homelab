@@ -69,27 +69,20 @@ jobs:
           kind create cluster --wait 60s
 
       # -----------------------------
-      # Server-side validation
+      # Server-side validation (excludes external resources from the validation)
       # -----------------------------
-      - name: Server-side validation — namespaces
-        run: |
-          kustomize build infrastructure/namespaces \
-            | kubectl apply --dry-run=server -f -
-
-      - name: Server-side validation — CRDs
-        run: |
-          kustomize build infrastructure/crds \
-            | kubectl apply --dry-run=server -f -
-
       - name: Server-side validation — infrastructure
         run: |
-          kustomize build infrastructure \
-            | kubectl apply --dry-run=server -f -
+          for dir in infrastructure/crds infrastructure/namespaces infrastructure/networking infrastructure/storage infrastructure/referenceGrants
+            echo "--- Validating $dir ---"
+            kustomize build "$dir" \
+              | kubectl apply -f -
+          done 
 
       - name: Server-side validation — apps
         run: |
           kustomize build apps \
-            | kubectl apply --dry-run=server -f -
+            | kubectl apply -f -
 
       # -----------------------------
       # Cleanup
