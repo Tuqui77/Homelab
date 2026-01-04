@@ -7,3 +7,4 @@ resources:
   - argocd/route.yaml
   - plex
   - immich
+  - homepage
