@@ -3,7 +3,6 @@ kind: Kustomization
 
 resources:
   - argocd.yaml
-  - cert-manager.yaml
   - cilium-sec.yaml
   - dashboard.yaml
   - media.yaml
