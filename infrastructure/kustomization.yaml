@@ -26,3 +26,5 @@ resources:
   - sealed-secrets/controller.yaml
 
   - cert-manager
+
+  - crds
