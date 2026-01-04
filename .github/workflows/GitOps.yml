@@ -74,18 +74,8 @@ jobs:
       - name: Server-side validation (kubectl dry-run)
         run: |
           set -e
-
-          validate_dir () {
-            local base=$1
-            find "$base" -type f -name "kustomization.yaml" -exec dirname {} \; | while read dir; do
-              echo "--- Server validating: $dir ---"
-              kustomize build "$dir" \
-                | kubectl apply --dry-run=server -f -
-            done
-          }
-
-          validate_dir infrastructure
-          validate_dir apps
+          kustomize build . \
+            | kubectl apply --dry-run=server -f -
 
       # -----------------------------
       # Cleanup
