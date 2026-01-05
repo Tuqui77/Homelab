@@ -4,5 +4,4 @@ kind: Kustomization
 resources:
   - gateway-api/standard-install.yaml
   - gateway-api/tls-routes.yaml
-  - cilium.yaml
   
