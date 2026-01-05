@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: immich-uploads
+  namespace: media
+spec:
+  volumeName: pvc-b90751e5-a8e2-4b0b-bd24-06d3800b793c
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs-homelab
+  resources:
+    requests:
+      storage: 200Gi

@@ -1,0 +1,93 @@
+name: GitOps Validation
+
+on:
+  pull_request:
+  push:
+    branches:
+      - Main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # -----------------------------
+      # Setup tools
+      # -----------------------------
+      - name: Setup tools
+        run: |
+          # kustomize
+          curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
+          sudo mv kustomize /usr/local/bin/
+
+          # kubeconform
+          wget https://github.com/yannh/kubeconform/releases/latest/download/kubeconform-linux-amd64.tar.gz
+          tar xf kubeconform-linux-amd64.tar.gz
+          sudo mv kubeconform /usr/local/bin/
+
+          # kubectl
+          curl -LO "https://dl.k8s.io/release/$(curl -Ls https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+          chmod +x kubectl
+          sudo mv kubectl /usr/local/bin/
+
+          # kind
+          curl -Lo kind https://kind.sigs.k8s.io/dl/v0.23.0/kind-linux-amd64
+          chmod +x kind
+          sudo mv kind /usr/local/bin/
+
+      # -----------------------------
+      # Static validation
+      # -----------------------------
+      - name: Static validation (kustomize + kubeconform)
+        run: |
+          set -e
+
+          validate_dir () {
+            local base=$1
+            find "$base" -type f -name "kustomization.yaml" -exec dirname {} \; | while read dir; do
+              echo "--- Static validating: $dir ---"
+              kustomize build "$dir" \
+                | kubeconform \
+                    -strict \
+                    -ignore-missing-schemas \
+                    -summary \
+                    -kubernetes-version 1.29.0
+            done
+          }
+
+          validate_dir infrastructure
+          validate_dir apps
+
+      # -----------------------------
+      # Ephemeral cluster
+      # -----------------------------
+      - name: Create ephemeral Kubernetes (kind)
+        run: |
+          kind create cluster --wait 60s
+
+      # -----------------------------
+      # Server-side validation (excludes external resources from the validation)
+      # -----------------------------
+      - name: Server-side validation — infrastructure
+        run: |
+          for dir in infrastructure/crds infrastructure/namespaces infrastructure/networking infrastructure/storage infrastructure/referenceGrants; do
+            echo "--- Validating $dir ---"
+            kustomize build "$dir" \
+              | kubectl apply -f -
+          done 
+
+      - name: Server-side validation — apps
+        run: |
+          kustomize build apps \
+            | kubectl apply -f -
+
+      # -----------------------------
+      # Cleanup
+      # -----------------------------
+      - name: Delete kind cluster
+        if: always()
+        run: |
+          kind delete cluster
