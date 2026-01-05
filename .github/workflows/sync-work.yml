@@ -25,5 +25,5 @@ jobs:
 
           git fetch origin
           git checkout work || git checkout -b work
-          git reset --hard origin/main
+          git reset --hard origin/Main
           git push origin work --force
