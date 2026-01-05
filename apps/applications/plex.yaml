@@ -15,4 +15,4 @@ spec:
   syncPolicy:
     automated:
       prune: true
-      seflHeal: true
+      selfHeal: true
