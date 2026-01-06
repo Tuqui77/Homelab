@@ -15,5 +15,5 @@ spec:
             type: PathPrefix
             value: /
       backendRefs:
-        - name: homepage # El nombre de tu Service de Kubernetes
+        - name: homepage
           port: 3000

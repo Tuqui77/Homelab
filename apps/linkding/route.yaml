@@ -9,7 +9,6 @@ spec:
  parentRefs:
  - name: homelab-gateway
    namespace: networking
-   sectionName: https
  rules:
   - backendRefs:
     - name: linkding
