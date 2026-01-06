@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - machine-learning/deployment.yaml
+  - machine-learning/service.yaml
   
   - microservices/deployment.yaml
 
