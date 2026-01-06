@@ -55,6 +55,10 @@ data:
             icon: plex.png
             href: http://192.168.100.156:32400/web
 
+        - linkding
+            icon: linkding.png
+            href: https://linkding.tomasmerino.com
+
     - Proxmox:
         - Proxmox dashboard:
             icon: proxmox.png
