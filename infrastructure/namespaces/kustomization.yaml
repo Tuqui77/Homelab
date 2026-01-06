@@ -9,3 +9,4 @@ resources:
   - monitoring.yaml
   - networking.yaml
   - storage.yaml
+  - linkding.yaml
