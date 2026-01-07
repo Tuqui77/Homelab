@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
- name: tailscale
+ name: tailscale-connectors
  namespace: argocd
 spec:
  project: default
  source:
    repoURL: https://github.com/Tuqui77/Homelab.git
    targetRevision: Main
-   path: infrastructure/networking/tailscale
+   path: infrastructure/networking/tailscale/connectors
  destination:
    server: https://kubernetes.default.svc
    namespace: tailscale
