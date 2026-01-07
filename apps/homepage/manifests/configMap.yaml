@@ -10,13 +10,21 @@ data:
     mode: default
     gateway: true
   settings.yaml: |
-    background: https://images.unsplash.com/photo-1485470733090-0aae1788d5af?q=80&w=1217&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+    background: 
+        image: https://images.unsplash.com/photo-1485470733090-0aae1788d5af?q=80&w=1217&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+        blur: lg
+        opacity: 70
     cardBlur: xs
     theme: dark
     color: slate
     target: _self
     statusStyle: "dot"
     language: es
+
+    layout:
+      Homelab:
+        style: row
+        columns: 3
 
   custom.css: ""
   custom.js: ""
@@ -27,22 +35,21 @@ data:
               href: https://github.com/Tuqui77
 
   services.yaml: |
-    - NAS:
-        - Qnap:
-            icon: qnap.png
-            href: http://192.168.100.56:8080
-            description: Panel de control NAS Qnap
-        - Pi-Hole:
-            icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/pi-hole.png
-            href: http://192.168.100.77/admin/login
-            description: Panel de control Pi-Hole NAS
+    - Homelab:
+        - Proxmox:
+            icon: proxmox.png
+            href: https://192.168.100.155:8006
 
-    - Cluster Kubernetes:
         - ArgoCD:
             icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/argo-cd.png
             href: https://argocd.tomasmerino.com
-            description: ArgoCD dashboard
-        
+
+        - Qnap:
+            icon: qnap.png
+            href: http://192.168.100.56:8080
+
+
+    - Servicios:
         - Immich:
             icon: immich.png
             href: https://immich.tomasmerino.com
@@ -59,10 +66,19 @@ data:
             icon: lubelogger.png
             href: https://garage.tomasmerino.com
 
-    - Proxmox:
-        - Proxmox dashboard:
-            icon: proxmox.png
-            href: https://192.168.100.155:8006
+
+    - Networking:
+        - Router:
+            icon: mdi-router-network-wireless
+            href: http://192.168.100.1/
+
+        - Pi-Hole (NAS):
+            icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/pi-hole.png
+            href: http://192.168.100.77/admin/login
+
+        - Adguard Home (k8s):
+            icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/adguard-home.png
+            href: https://adguard.tomasmerino.com
 
   widgets.yaml: |
     - kubernetes:
