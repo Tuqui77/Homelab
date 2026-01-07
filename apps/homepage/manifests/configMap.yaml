@@ -55,6 +55,10 @@ data:
             icon: linkding.png
             href: https://linkding.tomasmerino.com
 
+        - LubeLogger:
+            icon: lubelogger.png
+            href: https://garage.tomasmerino.com
+
     - Proxmox:
         - Proxmox dashboard:
             icon: proxmox.png

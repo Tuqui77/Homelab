@@ -10,3 +10,4 @@ resources:
   - networking.yaml
   - storage.yaml
   - linkding.yaml
+  - lubelogger.yaml
