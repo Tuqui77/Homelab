@@ -5,7 +5,7 @@ metadata:
   namespace: lubelogger
 spec:
   accessModes:
-    - readWriteOnce
+    - ReadWriteOnce
   storageClassName: nfs-homelab
   resources:
     requests:
