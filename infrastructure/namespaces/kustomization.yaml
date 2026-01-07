@@ -11,3 +11,4 @@ resources:
   - storage.yaml
   - linkding.yaml
   - lubelogger.yaml
+  - adguard.yaml
