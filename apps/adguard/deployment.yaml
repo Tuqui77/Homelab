@@ -17,6 +17,8 @@ spec:
     spec:
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
+      nodeSelector:
+        kubernetes.io/hostname: k8s-worker-01
       containers:
       - name: adguardhome
         image: adguard/adguardhome:latest
