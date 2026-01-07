@@ -10,10 +10,4 @@ resources:
   - cilium/l2-policy.yaml
   - cilium/app.yaml
 
-  - tailscale/operator/sealed-secret.yaml
-  - tailscale/operator/crds.yaml
-  - tailscale/operator/rbac.yaml
-  - tailscale/operator/deployment.yaml
-  - tailscale/operator/ingressClass.yaml
-  - tailscale/connectors/subnet-router.yaml
-  - tailscale/connectors/sealed-secret.yaml
+  - tailscale
