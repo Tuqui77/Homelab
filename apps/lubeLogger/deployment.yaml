@@ -32,7 +32,7 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: lubelogger
+            claimName: lubelogger-data
         - name: keys
           persistentVolumeClaim:
-            claimName: lubelogger
+            claimName: lubelogger-keys
