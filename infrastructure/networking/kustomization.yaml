@@ -3,7 +3,6 @@ kind: Kustomization
 
 resources:
   - gateway.yaml
-  - gatewayClass.yaml
   - certificate.yaml
   
   - cilium/ip-pool.yaml

@@ -3,7 +3,6 @@ kind: Kustomization
 
 resources:
   - argocd.yaml
-  - cilium-sec.yaml
   - dashboard.yaml
   - media.yaml
   - monitoring.yaml
