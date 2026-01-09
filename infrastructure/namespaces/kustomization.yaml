@@ -12,3 +12,4 @@ resources:
   - lubelogger.yaml
   - adguard.yaml
   - tailscale.yaml
+  - n8n.yaml
