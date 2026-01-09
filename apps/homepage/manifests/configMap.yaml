@@ -29,10 +29,22 @@ data:
   custom.css: ""
   custom.js: ""
   bookmarks.yaml: |
-    - Developer:
+    - Bookmarks:
         - Github:
             - abbr: GH
               href: https://github.com/Tuqui77
+        - Youtube:
+            - abbr: YT
+              href: https://youtube.com
+        - Reddit:
+            - abbr: RT
+              href: https://reddit.com
+        - MercadoLibre:
+            - abbr: ML
+              href: https://mercadolibre.com.ar
+        - MercadoPago:
+            - abbr: MP
+              href: https://mercadopago.com.ar
 
   services.yaml: |
     - Homelab:
@@ -65,6 +77,10 @@ data:
         - LubeLogger:
             icon: lubelogger.png
             href: https://garage.tomasmerino.com
+        
+        - Grafana:
+            icon: grafana.png
+            href: https://grafana.tomasmerino.com
 
 
     - Networking:
