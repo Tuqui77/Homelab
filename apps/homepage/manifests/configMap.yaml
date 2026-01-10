@@ -82,6 +82,10 @@ data:
             icon: grafana.png
             href: https://grafana.tomasmerino.com
 
+        - n8n:
+            icon: n8n.png
+            href: https://n8n.tomasmerino.com
+
 
     - Networking:
         - Router:
