@@ -13,3 +13,4 @@ resources:
   - adguard.yaml
   - tailscale.yaml
   - n8n.yaml
+  - paperless.yaml

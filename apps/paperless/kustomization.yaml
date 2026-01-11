@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - redis/deployment.yaml
+  - redis/service.yaml
+
+  - webserver/deployment.yaml
+  - webserver/pvc-consume.yaml
+  - webserver/pvc-data.yaml
+  - webserver/pvc-export.yaml
+  - webserver/pvc-media.yaml
+  - webserver/route.yaml
+  - webserver/service.yaml
