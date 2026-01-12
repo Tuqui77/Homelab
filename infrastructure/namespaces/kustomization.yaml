@@ -14,3 +14,4 @@ resources:
   - tailscale.yaml
   - n8n.yaml
   - paperless.yaml
+  - books.yaml
