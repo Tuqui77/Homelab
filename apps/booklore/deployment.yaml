@@ -25,12 +25,12 @@ spec:
           value: America/Argentina/Buenos_Aires
         - name: DATABASE_URL
           value: jdbc:mariadb://mariadb:3306/booklore
-        - name: DB_USER
+        - name: DATABASE_USERNAME
           valueFrom:
             secretKeyRef:
               name: booklore
               key: DB_USER
-        - name: DB_PASSWORD
+        - name: DATABASE_PASSWORD
           valueFrom:
             secretKeyRef:
               name: booklore
