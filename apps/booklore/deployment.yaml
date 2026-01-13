@@ -21,6 +21,8 @@ spec:
         ports:
         - containerPort: 6060
         env:
+        - name: BOOKLORE_PORT
+          value: "6060"
         - name: TZ
           value: America/Argentina/Buenos_Aires
         - name: DATABASE_URL
