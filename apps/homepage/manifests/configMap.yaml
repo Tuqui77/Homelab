@@ -25,6 +25,12 @@ data:
       Homelab:
         style: row
         columns: 3
+      Servicios:
+        style: row
+        columns: 4
+      Networking:
+        style: row
+        columns: 3
 
   custom.css: ""
   custom.js: ""
@@ -89,6 +95,10 @@ data:
         - Paperless:
             icon: paperless.png
             href: https://paperless.tomasmerino.com
+
+        - BookLore:
+            icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/booklore.png
+            href: https://booklore.tomasmerino.com
 
 
     - Networking:
