@@ -3,6 +3,9 @@ kind: Application
 metadata:
  name: tailscale
  namespace: argocd
+ annotations:
+  infra.tomasmerino.com/status: "disabled"
+  infra.tomasmerino.com/reason: "There was a conflict between the subnet-router and Cilium (apparently) which caused the tailnet to malfunction"
 spec:
  project: default
  source:
@@ -13,6 +16,6 @@ spec:
    server: https://kubernetes.default.svc
    namespace: tailscale
  syncPolicy:
-   automated:
-     prune: true
-     selfHeal: true
+  automated:
+    prune: true
+    selfHeal: true
