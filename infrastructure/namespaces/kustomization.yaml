@@ -11,7 +11,7 @@ resources:
   - linkding.yaml
   - lubelogger.yaml
   - adguard.yaml
-  - tailscale.yaml
+  # - tailscale.yaml
   - n8n.yaml
   - paperless.yaml
   - books.yaml
