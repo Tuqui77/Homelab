@@ -3,5 +3,9 @@ kind: Kustomization
 
 resources:
   - k8s-metrics-server
+
   - kube-prometheus/app.yaml
   - kube-prometheus/route.yaml
+
+  - verticalPodAutoscaler/deployment.yaml
+  - verticalPodAutoscaler/rbac.yaml
