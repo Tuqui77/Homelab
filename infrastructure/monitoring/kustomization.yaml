@@ -9,3 +9,4 @@ resources:
 
   - verticalPodAutoscaler/deployment.yaml
   - verticalPodAutoscaler/rbac.yaml
+  - verticalPodAutoscaler/crds.yaml
