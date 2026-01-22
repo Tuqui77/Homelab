@@ -4,8 +4,9 @@
     "config:recommended",
     ":dependencyDashboard"
   ],
-
   "kubernetes": {
-    "fileMatch": ["\\.yaml$"]
+    "managerFilePatterns": [
+      "/\\.yaml$/"
+    ]
   }
 }
