@@ -39,6 +39,7 @@ data:
         flex-direction: column;
         justify-content: center;
         align-items: center
+    }
   custom.js: ""
   bookmarks.yaml: |
     - Bookmarks:
@@ -73,6 +74,10 @@ data:
         - ArgoCD:
             icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/argo-cd.png
             href: https://argocd.tomasmerino.com
+            widget:
+              type: argocd
+              url: https://argocd.tomasmerino.com
+              key: {{HOMEPAGE_VAR_ARGO_API_KEY}}
 
         - Qnap:
             icon: qnap.png
