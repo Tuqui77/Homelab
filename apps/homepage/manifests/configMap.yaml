@@ -32,7 +32,13 @@ data:
         style: row
         columns: 3
 
-  custom.css: ""
+  custom.css: |
+    .service-card {
+        min-height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center
   custom.js: ""
   bookmarks.yaml: |
     - Bookmarks:
