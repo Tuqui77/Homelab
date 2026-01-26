@@ -4,7 +4,7 @@ metadata:
   labels:
     service: postgres-n8n
     version: "18"
-  name: postgres
+  name: postgres-18
   namespace: n8n
 spec:
   replicas: 1
