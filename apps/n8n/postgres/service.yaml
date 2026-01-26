@@ -14,5 +14,5 @@ spec:
       protocol: TCP
   selector:
     service: postgres-n8n
-    version: "13"
+    version: "18"
 
