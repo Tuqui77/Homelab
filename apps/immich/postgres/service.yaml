@@ -7,7 +7,7 @@ spec:
   type: ClusterIP
   selector:
     app: immich-postgres
-    version: "14"
+    version: "16"
   ports:
     - port: 5432
       targetPort: 5432
