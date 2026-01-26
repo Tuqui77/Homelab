@@ -1,69 +1,107 @@
-# Homelab Kubernetes (GitOps)
+
+# Kubernetes Homelab (GitOps)
+
+![Kubernetes](https://img.shields.io/badge/kubernetes-v1.34.1-326CE5?logo=kubernetes&logoColor=white) ![ArgoCD](https://img.shields.io/badge/GitOps-ArgoCD-EF7B4D?logo=argo&logoColor=white) ![Talos](https://img.shields.io/badge/OS-Talos_Linux-FF6C2C?logo=linux&logoColor=white)
 
 This repository contains the GitOps definition of my homelab based on Kubernetes, managed by ArgoCD and deployed on Talos Linux.
 
-The main goals of this projects are:
+## Goals
+
 - Practice Kubernetes realistically
 - Use good practices (GitOps, layers separation, security)
-- Serve as a base for personal services (currently running mostly on Docker)
+- Serve as a base for personal services
 - Work in a production-like environment
+
+---
+
+## Architecture
+
+### Infrastructure
+
+- **Hypervisor**: Proxmox VE
+- **Host Hardware**: Ryzen 5 5600G, 32GB DDR4, 480GB SSD
+- **Kubernetes Cluster**:
+    - 1x Control Plane (8GB RAM)
+    - 2x Worker Nodes (8GB RAM each)
+- **OS**: Talos Linux
+
+### Network & Storage
+
+- **NFS**: Persistent storage backed by NAS
+- **DNS**: Pi-hole (primary) + AdGuard Home (backup)
+- **Domain**: tomasmerino.com (Cloudflare DNS)
+- **TLS**: Let's Encrypt via cert-manager
+
+---
+
+## Applications
+
+- **ArgoCD** - GitOps management
+- **Immich** - Photo management
+- **Plex** - Media server
+- **n8n** - Workflow automation
+- **Paperless-ngx** - Document management
+- **Homepage** - Dashboard
+- **Linkding** - Bookmark manager
+- **LubeLogger** - Vehicle maintenance tracker
+- **Booklore** - Book management
+- **AdGuard Home** - Backup DNS server
 
 ---
 
 ## Tech Stack
 
-- Kubernetes (Talos Linux)
-- Cilium (CNI + Gateway API + L2 Announcements)
-- ArgoCD (GitOps)
-- NFS (Persistant Storage on my NAS)
-- Sealed Secrets
-- Pi-hole (local DNS)
+- **Kubernetes**: v1.34.1 (Talos Linux)
+- **CNI**: Cilium (with Gateway API + L2 Announcements)
+- **GitOps**: ArgoCD
+- **Storage**: NFS (nfs-subdir-external-provisioner)
+- **Secrets**: Sealed Secrets
+- **Ingress**: Gateway API (Cilium) + HTTPRoutes
+- **DNS**:
+    - **Pi-Hole**: Primary DNS server, running on my NAS
+    - **AdGuard Home**: Secondary DNS server running on Kubernetes
 
 ---
 
 ## GitOps Workflow
 
 The entire cluster state is defined in this repository.
+
 - ArgoCD continuously watches this repo
 - Any change is automatically reconciled into the cluster
-- Manual changes using kubectl are avoided
+- Manual changes using `kubectl` are avoided
 
-The cluster always converges to the declared state.
+**The cluster always converges to the declared state.**
 
 ---
 
 ## Access to Services
 
-Services are exposed using Gateway API (Cilium) and cloudflare DNS:
+## Access & Networking
 
-Service	URL
+**Internal Access**:
+- Services exposed via **Gateway API** (Cilium) with **L2 announcements**
+- Public DNS via **Cloudflare** (tomasmerino.com)
+- TLS certificates automatically provisioned via **cert-manager**
 
-ArgoCD	https://argocd.tomasmerino.com
+**Remote Access**:
+- **Tailscale** for secure remote connectivity (Subnet router + exit node running in Proxmox host since I had a lot of troubles with the connector in Kubernetes)
 
-Immich	https://immich.tomasmerino.com
-
-Using a personal domain to terminate TLS certificates using cert-manager
+All exposed services use HTTPS with Let's Encrypt certificates.  
 
 ---
 
 ## Storage
 
-- NFS backend shared from my NAS
-- Dynamic provisioning via nfs-subdir-external-provisioner
+- NFS backend shared from NAS
+- Dynamic provisioning via `nfs-subdir-external-provisioner`
 - Dedicated PVCs per application (config / data / media)
-
---- 
-
-## Security
-
-- Secrets managed using Sealed Secrets
-- No plaintext credentials stored in the repository
-- Applications are isolated using namespaces
 
 ---
 
-Backups automáticos (Velero)
+## Security
 
-Observabilidad (Hubble / Prometheus)
-
-CI para validación de manifests
+- Secrets managed using **Sealed Secrets**
+- No plaintext credentials stored in the repository
+- Applications isolated using **namespaces**
+- TLS certificates automatically provisioned and renewed
