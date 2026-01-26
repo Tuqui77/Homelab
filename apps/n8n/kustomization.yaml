@@ -12,3 +12,5 @@ resources:
   - postgres/deployment.yaml
   - postgres/service.yaml
   - postgres/sealed-secret.yaml
+  - postgres/deployment-18.yaml
+  - postgres/pvc-18.yaml
