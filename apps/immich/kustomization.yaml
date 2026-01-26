@@ -7,9 +7,9 @@ resources:
   
   - microservices/deployment.yaml
 
-  - postgres/pvc.yaml
   - postgres/service.yaml
   - postgres/statefulSet.yaml
+  - postgres/statefulSet-16.yaml
 
   - pvc/library.yaml
   - pvc/uploads.yaml
