@@ -33,6 +33,7 @@ This repository contains the GitOps definition of my homelab based on Kubernetes
 - **TLS**: Let's Encrypt via cert-manager
 
 Currently everything (cluster, NAS and my desktop PC) is working directly from the ISP router's switch. Lately it's been struggling a little with big file transfers, even crashing the internet connection. I have to get a dedicated switch as soon as possible.
+
 ---
 
 ## Applications
