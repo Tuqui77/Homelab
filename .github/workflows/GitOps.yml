@@ -38,6 +38,11 @@ jobs:
           chmod +x kind
           sudo mv kind /usr/local/bin/
 
+          # helm
+          curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+          chmod 700 get_helm.sh
+          ./get_helm.sh
+
       # -----------------------------
       # Static validation
       # -----------------------------
@@ -71,18 +76,30 @@ jobs:
       # -----------------------------
       # Server-side validation
       # -----------------------------
-      - name: Server-side validation — CRDs
+      - name: Install prerequisites
         run: |
-          echo "--- Validating CRDs ---"
-          kustomize build infrastructure/crds | kubectl apply -f -
-
-      - name: Server-side validation — cert-manager controller
-        run: |
+          echo "--- Installing ArgoCD CRDs ---"
+          kubectl apply -k "https://github.com/argoproj/argo-cd/manifests/crds?ref=stable"
+          
+          echo "--- Installing Cilium ---"
+          helm repo add cilium https://helm.cilium.io/
+          helm install cilium cilium/cilium --version 1.18.5 --namespace kube-system
+          
           echo "--- Installing cert-manager controller ---"
           kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.5/cert-manager.yaml
+          
+          echo "--- Installing Sealed Secrets controller ---"
+          kustomize build infrastructure/sealed-secrets | kubectl apply -f -
+
+      - name: Wait for controllers
+        run: |
+          echo "--- Waiting for Cilium to be ready ---"
+          kubectl wait --for=condition=ready --timeout=300s pod -l k8s-app=cilium -n kube-system --all
           echo "--- Waiting for cert-manager webhook to be ready ---"
           kubectl wait --for=condition=available --timeout=120s deployment/cert-manager-webhook -n cert-manager
-          
+          echo "--- Waiting for Sealed Secrets to be ready ---"
+          kubectl wait --for=condition=available --timeout=120s deployment/sealed-secrets-controller -n kube-system
+
       - name: Server-side validation — infrastructure
         run: |
           echo "--- Validating the rest of the infrastructure ---"
