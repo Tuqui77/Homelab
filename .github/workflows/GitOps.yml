@@ -69,20 +69,29 @@ jobs:
           kind create cluster --wait 60s
 
       # -----------------------------
-      # Server-side validation (excludes external resources from the validation)
+      # Server-side validation
       # -----------------------------
+      - name: Server-side validation — CRDs
+        run: |
+          echo "--- Validating CRDs ---"
+          kustomize build infrastructure/crds | kubectl apply -f -
+
+      - name: Server-side validation — cert-manager controller
+        run: |
+          echo "--- Installing cert-manager controller ---"
+          kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.5/cert-manager.yaml
+          echo "--- Waiting for cert-manager webhook to be ready ---"
+          kubectl wait --for=condition=available --timeout=120s deployment/cert-manager-webhook -n cert-manager
+          
       - name: Server-side validation — infrastructure
         run: |
-          for dir in infrastructure/crds infrastructure/namespaces infrastructure/networking infrastructure/storage infrastructure/referenceGrants; do
-            echo "--- Validating $dir ---"
-            kustomize build "$dir" \
-              | kubectl apply -f -
-          done 
-
+          echo "--- Validating the rest of the infrastructure ---"
+          kustomize build infrastructure | kubectl apply -f -
+            
       - name: Server-side validation — apps
         run: |
-          kustomize build apps \
-            | kubectl apply -f -
+          echo "--- Validating apps ---"
+          kustomize build apps | kubectl apply -f -
 
       # -----------------------------
       # Cleanup
