@@ -16,10 +16,3 @@ spec:
       containers:
         - name: redis
           image: redis:8
-          resources:
-            requests:
-              cpu: 25m
-              memory: 250
-            limits:
-              cpu: 25m
-              memory: 250Mi

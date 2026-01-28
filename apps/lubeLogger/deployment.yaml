@@ -24,13 +24,6 @@ spec:
               value: es_AR
             - name: LANG
               value: es_AR
-          resources:
-            requests:
-              cpu: 25m
-              memory: 250Mi
-            limits:
-              cpu: 25m
-              memory: 250Mi
           volumeMounts:
             - mountPath: /App/data
               name: data

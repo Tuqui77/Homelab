@@ -19,10 +19,3 @@ spec:
           image: docker.io/library/redis:8
           ports:
             - containerPort: 6379
-          resources:
-            requests:
-              cpu: 25m
-              memory: 250Mi
-            limits:
-              cpu: 25m
-              memory: 250Mi

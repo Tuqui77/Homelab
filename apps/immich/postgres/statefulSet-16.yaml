@@ -35,13 +35,6 @@ spec:
                 secretKeyRef:
                   name: immich-db
                   key: DB_DATABASE_NAME
-          resources:
-            requests:
-              cpu: 25m
-              memory: 250Mi
-            limits:
-              cpu: 25m
-              memory: 320Mi
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: data-16
