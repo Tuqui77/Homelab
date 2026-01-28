@@ -8,4 +8,3 @@ metadata:
     app.kubernetes.io/name: homepage
   annotations:
     kubernetes.io/service-account.name: homepage
-    

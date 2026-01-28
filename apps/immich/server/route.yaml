@@ -5,13 +5,12 @@ metadata:
   namespace: media
 spec:
   hostnames:
-  - immich.tomasmerino.com
+    - immich.tomasmerino.com
   parentRefs:
     - name: homelab-gateway
       namespace: networking
       sectionName: https
   rules:
     - backendRefs:
-      - name: immich
-        port: 2283
-        
+        - name: immich
+          port: 2283

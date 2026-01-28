@@ -107,3 +107,4 @@ All exposed services use HTTPS with Let's Encrypt certificates.
 - No plaintext credentials stored in the repository
 - Applications isolated using **namespaces**
 - TLS certificates automatically provisioned and renewed
+

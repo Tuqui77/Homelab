@@ -16,34 +16,34 @@ spec:
         app: booklore
     spec:
       containers:
-      - name: booklore
-        image: booklore/booklore:v1.18.5
-        ports:
-        - containerPort: 6060
-        env:
-        - name: BOOKLORE_PORT
-          value: "6060"
-        - name: TZ
-          value: America/Argentina/Buenos_Aires
-        - name: DATABASE_URL
-          value: jdbc:mariadb://mariadb:3306/booklore
-        - name: DATABASE_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: booklore
-              key: DB_USER
-        - name: DATABASE_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: booklore
-              key: DB_PASSWORD
-        volumeMounts:
-          - mountPath: /app/data
-            name: data
-          - mountPath: /books
-            name: books
-          - mountPath: /bookdrop
-            name: bookdrop
+        - name: booklore
+          image: booklore/booklore:v1.18.5
+          ports:
+            - containerPort: 6060
+          env:
+            - name: BOOKLORE_PORT
+              value: "6060"
+            - name: TZ
+              value: America/Argentina/Buenos_Aires
+            - name: DATABASE_URL
+              value: jdbc:mariadb://mariadb:3306/booklore
+            - name: DATABASE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: booklore
+                  key: DB_USER
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: booklore
+                  key: DB_PASSWORD
+          volumeMounts:
+            - mountPath: /app/data
+              name: data
+            - mountPath: /books
+              name: books
+            - mountPath: /bookdrop
+              name: bookdrop
       volumes:
         - name: data
           persistentVolumeClaim:

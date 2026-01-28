@@ -15,20 +15,20 @@ spec:
         app: lubelogger
     spec:
       containers:
-      - name: lubelogger
-        image: ghcr.io/hargata/lubelogger:latest
-        ports:
-        - containerPort: 8080
-        env:
-          - name: LC_ALL
-            value: es_AR
-          - name: LANG
-            value: es_AR
-        volumeMounts:
-          - mountPath: /App/data
-            name: data
-          - mountPath: /root/.aspnet/DataProtection-Keys
-            name: keys
+        - name: lubelogger
+          image: ghcr.io/hargata/lubelogger:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: LC_ALL
+              value: es_AR
+            - name: LANG
+              value: es_AR
+          volumeMounts:
+            - mountPath: /App/data
+              name: data
+            - mountPath: /root/.aspnet/DataProtection-Keys
+              name: keys
       volumes:
         - name: data
           persistentVolumeClaim:
