@@ -1,21 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
- name: tailscale
- namespace: argocd
- annotations:
-  infra.tomasmerino.com/status: "disabled"
-  infra.tomasmerino.com/reason: "There was a conflict between the subnet-router and Cilium (apparently) which caused the tailnet to malfunction"
+  name: tailscale
+  namespace: argocd
+  annotations:
+    infra.tomasmerino.com/status: "disabled"
+    infra.tomasmerino.com/reason: "There was a conflict between the subnet-router and Cilium (apparently) which caused the tailnet to malfunction"
 spec:
- project: default
- source:
-   repoURL: https://github.com/Tuqui77/Homelab.git
-   targetRevision: Main
-   path: infrastructure/networking/tailscale
- destination:
-   server: https://kubernetes.default.svc
-   namespace: tailscale
- syncPolicy:
-  automated:
-    prune: true
-    selfHeal: true
+  project: default
+  source:
+    repoURL: https://github.com/Tuqui77/Homelab.git
+    targetRevision: Main
+    path: infrastructure/networking/tailscale
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: tailscale
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
