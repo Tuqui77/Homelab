@@ -31,6 +31,13 @@ spec:
                 secretKeyRef:
                   name: linkding
                   key: LD_SUPERUSER_PASSWORD
+          resources:
+            requests:
+              cpu: 25m
+              memory: 284Mi
+            limits:
+              cpu: 25m
+              memory: 307Mi
           volumeMounts:
             - name: linkding-data
               mountPath: /etc/linkding/data

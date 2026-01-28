@@ -24,3 +24,10 @@ spec:
           env:
             - name: IMMICH_PORT
               value: "3003"
+          resources:
+            requests:
+              cpu: 25m
+              memory: 1252Mi
+            limits:
+              cpu: 25m
+              memory: 1353Mi
