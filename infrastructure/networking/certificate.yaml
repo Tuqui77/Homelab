@@ -11,4 +11,3 @@ spec:
   dnsNames:
     - "*.tomasmerino.com"
     - "tomasmerino.com"
-    

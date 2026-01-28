@@ -11,6 +11,5 @@ spec:
       namespace: networking
   rules:
     - backendRefs:
-      - name: uptime-kuma
-        port: 3001
-
+        - name: uptime-kuma
+          port: 3001

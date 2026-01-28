@@ -13,22 +13,21 @@ spec:
   template:
     metadata:
       annotations:
-        kubectl.kubernetes.io/default-container:  uptime-kuma
+        kubectl.kubernetes.io/default-container: uptime-kuma
       labels:
         app: uptime-kuma
     spec:
       containers:
-      - name: uptime-kuma
-        image: louislam/uptime-kuma:2
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 3001
-          name: uptime-kuma
-        volumeMounts:
-        - name: data
-          mountPath: /app/data
+        - name: uptime-kuma
+          image: louislam/uptime-kuma:2
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3001
+              name: uptime-kuma
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
       volumes:
         - name: data
           persistentVolumeClaim:
             claimName: uptime-kuma
-
