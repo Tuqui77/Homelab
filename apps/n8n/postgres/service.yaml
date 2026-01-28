@@ -15,4 +15,3 @@ spec:
   selector:
     service: postgres-n8n
     version: "18"
-
