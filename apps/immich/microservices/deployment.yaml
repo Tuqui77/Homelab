@@ -49,13 +49,6 @@ spec:
                 secretKeyRef:
                   name: immich-db
                   key: REDIS_HOSTNAME
-          resources:
-            requests:
-              cpu: 25m
-              memory: 524Mi
-            limits:
-              cpu: 25m
-              memory: 648Mi
           volumeMounts:
             - mountPath: /usr/src/app/upload
               name: uploads

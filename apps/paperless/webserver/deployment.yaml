@@ -34,13 +34,6 @@ spec:
               value: spa
             - name: PAPERLESS_OCR_LANGUAGES
               value: eng
-          resources:
-            requests:
-              cpu: 25m
-              memory: 1115Mi
-            limits:
-              cpu: 25m
-              memory: 1205Mi
           volumeMounts:
             - mountPath: /usr/src/paperless/data
               name: data

@@ -27,13 +27,6 @@ spec:
               value: "192.168.100.0/24,10.244.0.0/16"
           ports:
             - containerPort: 32400
-          resources:
-            requests:
-              cpu: 25m
-              memory: 250Mi
-            limits:
-              cpu: 25m
-              memory: 250Mi
           volumeMounts:
             - name: config
               mountPath: /config
