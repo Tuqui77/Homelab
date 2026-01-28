@@ -53,11 +53,11 @@ spec:
                   key: REDIS_HOSTNAME
           resources:
             requests:
-              cpu: "500m"
-              memory: "1024Mi"
+              cpu: 25m
+              memory: 488Mi
             limits:
-              cpu: "2000m"
-              memory: "4Gi"
+              cpu: 25m
+              memory: 739Mi
           volumeMounts:
             - mountPath: /usr/src/app/upload
               name: uploads
