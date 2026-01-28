@@ -39,10 +39,10 @@ spec:
                   key: DB_PASSWORD
           resources:
             requests:
-              cpu: 100m
+              cpu: 25m
               memory: 933Mi
             limits:
-              cpu: 500m
+              cpu: 25m
               memory: 1136Mi
           volumeMounts:
             - mountPath: /app/data
