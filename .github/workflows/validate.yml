@@ -18,8 +18,12 @@ jobs:
           kubeconform: 0.5.0
           kustomize: 4.5.7
       - run: |
-          kustomize build apps | kubeconform -strict -summary -verbose
-          kustomize build infrastructure | kubeconform -strict -summary -verbose
+          kustomize build apps | kubeconform -strict -summary -verbose \
+            -schema-location default \
+            -schema-location 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/{{.Group}}/{{.ResourceKind}}_{{.ResourceAPIVersion}}.json'
+          kustomize build infrastructure | kubeconform -strict -summary -verbose \
+            -schema-location default \
+            -schema-location 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/{{.Group}}/{{.ResourceKind}}_{{.ResourceAPIVersion}}.json'
 
 
   yaml-lint:
@@ -27,6 +31,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          pip install yaml-lint
+          pip install yamllint
           yamllint -d relaxed apps/ infrastructure/
 
