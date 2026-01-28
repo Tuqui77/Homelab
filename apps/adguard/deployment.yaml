@@ -33,6 +33,13 @@ spec:
               name: gui
             - containerPort: 3000
               name: initial-config
+          resources:
+            requests:
+              cpu: 25m
+              memory: 250Mi
+            limits:
+              cpu: 25m
+              memory: 250Mi
           volumeMounts:
             - mountPath: /opt/adguardhome/work
               name: data
