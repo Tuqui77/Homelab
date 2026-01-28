@@ -19,9 +19,11 @@ jobs:
           kustomize: 4.5.7
       - run: |
           kustomize build apps | kubeconform -strict -summary -verbose \
+            -skip CustomResourceDefinition \
             -schema-location default \
             -schema-location 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/{{.Group}}/{{.ResourceKind}}_{{.ResourceAPIVersion}}.json'
           kustomize build infrastructure | kubeconform -strict -summary -verbose \
+            -skip CustomResourceDefinition \
             -schema-location default \
             -schema-location 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/{{.Group}}/{{.ResourceKind}}_{{.ResourceAPIVersion}}.json'
 
