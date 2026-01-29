@@ -8,5 +8,11 @@
     "managerFilePatterns": [
       "/\\.yaml$/"
     ]
-  }
+  },
+  "packageRules": [
+    {
+      "matchDatasources": ["Docker"],
+      "pinDigests": true,
+    }
+  ]
 }
