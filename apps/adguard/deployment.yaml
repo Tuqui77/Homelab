@@ -21,7 +21,7 @@ spec:
         kubernetes.io/hostname: k8s-worker-01
       containers:
         - name: adguardhome
-          image: adguard/adguardhome:latest
+          image: adguard/adguardhome:v0.107.71
           ports:
             - containerPort: 53
               name: dns-tcp
