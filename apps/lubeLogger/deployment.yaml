@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: lubelogger
-          image: ghcr.io/hargata/lubelogger:latest
+          image: ghcr.io/hargata/lubelogger:latest@sha256:ec072f19b7b9f90d38f23507ac5bb0c9295fbf70470e91e7f778a7ef51df7eef
           ports:
             - containerPort: 8080
           env:
