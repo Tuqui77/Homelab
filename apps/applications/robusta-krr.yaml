@@ -1,0 +1,59 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: robusta
+  namespace: argocd
+  labels:
+    robusta-argo-config-version: 0.0.1
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+  sources:
+    - chart: robusta
+      repoURL: https://robusta-charts.storage.googleapis.com
+      targetRevision: 0.32.x
+      helm:
+        values: |
+          clusterName: Homelab
+          enableHolmesGPT: true
+          enablePlatformPlaybooks: true
+          enablePrometheusStack: false
+          enabledManagedConfiguration: true
+          globalConfig:
+            account_id:
+              valueFrom:
+                secretKeyRef:
+                  key: ACCOUNT_ID
+                  name: robusta-credentials
+            signing_key:
+              valueFrom:
+                secretKeyRef:
+                  key: SIGNING_KEY
+                  name: robusta-credentials
+          holmes:
+            additionalEnvVars:
+            - name: ROBUSTA_AI
+              value: 'true'
+            - name: ROBUSTA_UI_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: ROBUSTA_UI_TOKEN
+                  name: robusta-secrets
+          runner:
+            additional_env_vars:
+            - name: ROBUSTA_UI_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: ROBUSTA_UI_TOKEN
+                  name: robusta-secrets
+            sendAdditionalTelemetry: true
+          sinksConfig:
+          - robusta_sink:
+              name: robusta_ui_sink
+              token: '{{ env.ROBUSTA_UI_TOKEN }}'
+
+    - repoURL: https://github.com/Tuqui77/Homelab.git
+      targetRevision: Main
+      path: apps/robusta-krr
