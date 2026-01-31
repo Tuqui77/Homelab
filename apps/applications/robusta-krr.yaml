@@ -57,3 +57,7 @@ spec:
     - repoURL: https://github.com/Tuqui77/Homelab.git
       targetRevision: Main
       path: apps/robusta-krr
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
