@@ -22,6 +22,8 @@ spec:
           enablePrometheusStack: false
           enabledManagedConfiguration: true
           globalConfig:
+          prometheus_url: "http://kube-prometheus-kube-prome-prometheus.monitoring.svc.cluster.local:9090"
+          alertmanager_url: "http://kube-prometheus-kube-prome-alertmanager.monitoring.svc.cluster.local:9093"
             account_id:
               valueFrom:
                 secretKeyRef:
