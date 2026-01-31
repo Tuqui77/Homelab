@@ -2,5 +2,3 @@
 *secret*.yaml
 # Exception to allow files with "sealed-secret/s" on it's name
 !sealed-*secret*.yaml
-
-buscar_versiones.sh
