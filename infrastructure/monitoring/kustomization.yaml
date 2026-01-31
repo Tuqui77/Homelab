@@ -6,4 +6,3 @@ resources:
 
   - kube-prometheus/app.yaml
   - kube-prometheus/route.yaml
-
