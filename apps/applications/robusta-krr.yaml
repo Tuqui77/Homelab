@@ -24,16 +24,17 @@ spec:
           globalConfig:
             prometheus_url: "http://kube-prometheus-kube-prome-prometheus.monitoring.svc.cluster.local:9090"
             alertmanager_url: "http://kube-prometheus-kube-prome-alertmanager.monitoring.svc.cluster.local:9093"
-          account_id:
-            valueFrom:
-              secretKeyRef:
-                key: ACCOUNT_ID
-                name: robusta-credentials
-          signing_key:
-            valueFrom:
-              secretKeyRef:
-                key: SIGNING_KEY
-                name: robusta-credentials
+            account_id:
+              valueFrom:
+                secretKeyRef:
+                  key: ACCOUNT_ID
+                  name: robusta-credentials
+            signing_key:
+              valueFrom:
+                secretKeyRef:
+                  key: SIGNING_KEY
+                  name: robusta-credentials
+            custom_annotations: {}
           holmes:
             additionalEnvVars:
             - name: ROBUSTA_AI
