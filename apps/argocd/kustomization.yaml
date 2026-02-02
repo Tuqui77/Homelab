@@ -4,3 +4,7 @@ kind: Kustomization
 resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
   - route.yaml
+
+patches:
+  - patch-argocd-server.yaml
+  - patch-argocd-cm.yaml
