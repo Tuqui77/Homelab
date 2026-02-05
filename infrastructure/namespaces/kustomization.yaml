@@ -15,4 +15,3 @@ resources:
   - n8n.yaml
   - paperless.yaml
   - books.yaml
-  - goldilocks.yaml
