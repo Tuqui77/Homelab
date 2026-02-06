@@ -2,19 +2,36 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: argocd
-  namespace: argocd
 spec:
-  project: default
   source:
-    repoURL: https://github.com/Tuqui77/Homelab.git
-    targetRevision: Main
-    path: apps/argocd
+    repoURL: https://argoproj.github.io/argo-helm
+    chart: argo-cd
+    targetRevision: 9.4.0
+    helm:
+      values: |
+        configs:
+          cm:
+            url: https://argocd.tomasmerino.com
+            server.insecure: true
+
+
+          server:
+            extraArgs:
+              - --insecure
+
+          service:
+            type: ClusterIP
+            servicePortHttp: 80
+
+          crds:
+            install: true
+
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
   syncPolicy:
-    syncOptions:
-      - ServerSideApply=true
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
