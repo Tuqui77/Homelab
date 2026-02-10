@@ -18,20 +18,19 @@ spec:
           server:
             extraArgs:
               - --insecure
-
-          service:
-            type: ClusterIP
-            servicePortHttp: 80
+            service:
+              type: ClusterIP
+              servicePortHttp: 80
 
           crds:
-            install: true
+            install: false
 
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
   syncPolicy:
     automated:
-      prune: true
+      prune: false
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
