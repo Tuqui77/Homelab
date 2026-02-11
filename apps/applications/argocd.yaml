@@ -25,7 +25,8 @@ spec:
               - --insecure
             service:
               type: ClusterIP
-              servicePortHttp: 80
+              ports:
+                http: 80
 
           crds:
             install: false
