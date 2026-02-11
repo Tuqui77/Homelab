@@ -41,6 +41,8 @@ Currently everything (cluster, NAS and my desktop PC) is working directly from t
 - **ArgoCD** - GitOps management
 - **Immich** - Photo management
 - **Plex** - Media server
+    Problem: when using an HTTPRoute to access the service through the gateway, Plex detected the connection as remote access instead of local network traffic. This caused the streaming to require Plex Pass.
+    Solution: modified the Deployment to use hostNetwork, allowing Plex to see the real client IP and treat traffic as local. The downside is that the namespace has to be privileged to allow this.
 - **n8n** - Workflow automation
 - **Paperless-ngx** - Document management
 - **Homepage** - Dashboard
