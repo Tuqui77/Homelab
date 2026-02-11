@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: qbittorrent
-        image: linuxserver/qbittorrent:5.1.4
+        image: linuxserver/qbittorrent:20.04.1
         ports:
         - containerPort: 8080
         volumeMounts:
