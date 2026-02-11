@@ -1,0 +1,15 @@
+configs:
+  cm:
+    url: https://argocd.tomasmerino.com
+    server.insecure: true
+
+server:
+  extraArgs:
+    - --insecure
+
+  service:
+    type: ClusterIP
+    servicePortHttp: 80
+
+crds:
+  install: false
