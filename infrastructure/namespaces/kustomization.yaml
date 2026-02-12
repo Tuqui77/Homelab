@@ -12,7 +12,7 @@ resources:
   - lubelogger.yaml
   - adguard.yaml
   # - tailscale.yaml
-  - n8n.yaml
+  # - n8n.yaml
   - paperless.yaml
   - books.yaml
   - torrent.yaml
