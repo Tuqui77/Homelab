@@ -24,7 +24,7 @@ spec:
             - name: ADVERTISE_IP
               value: "http://192.168.100.157:32400/"
             - name: ALLOWED_NETWORKS
-              value: "192.168.100.0/24,10.244.0.0/16"
+              value: "192.168.100.0/24"
           ports:
             - containerPort: 32400
           volumeMounts:
