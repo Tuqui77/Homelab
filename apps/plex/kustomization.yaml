@@ -3,5 +3,6 @@ kind: Kustomization
 
 resources:
   - manifests/deployment.yaml
+  - manifests/service.yaml
   - manifests/pvc-config.yaml
   - manifests/pvc-media.yaml
