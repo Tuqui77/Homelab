@@ -15,14 +15,14 @@ spec:
     spec:
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
+      nodeSelector:
+        kubernetes.ui/hostname: k8s-worker-01
       containers:
         - name: plex
           image: plexinc/pms-docker:1.43.0.10492-121068a07
           env:
             - name: ADVERTISE_IP
-              valueFrom:
-                fieldRef:
-                  fieldPath: status.hostIP
+              value: "http://192.168.100.157:32400/"
             - name: ALLOWED_NETWORKS
               value: "192.168.100.0/24,10.244.0.0/16"
           ports:
