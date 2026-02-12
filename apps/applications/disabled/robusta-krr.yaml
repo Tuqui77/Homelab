@@ -5,6 +5,9 @@ metadata:
   namespace: argocd
   labels:
     robusta-argo-config-version: 0.0.1
+  annotations:
+    infra.tomasmerino.com/status: "Disabled"
+    infra.tomasmerino.com/reason: "Didn't work as I expected, and since I can monitor the resources in Grafana it didn't make sense to preserve it"
 spec:
   project: default
   destination:
