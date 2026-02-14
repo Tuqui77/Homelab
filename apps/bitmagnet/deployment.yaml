@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bitmagnet
+  namespace: torrent
+  labels:
+    app: bitmagnet
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bitmagnet
+  template:
+    metadata:
+      labels:
+        app: bitmagnet
+    spec:
+      containers:
+      - name: bitmagnet
+        image: ghcr.io/bitmagnet-io/bitmagnet:v0.10.0
+        env:
+            - name: POSTGRES_HOST
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: bitmagnet
+                  key: POSTGRES_PASSWORD
+        ports:
+        - containerPort: 3333
+          name: gui
+        - containerPort: 3334
+          name: torrent
+        volumeMounts:
+          - mountPath: /root/.config/bitmagnet
+            name: config
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: bitmagnet-config

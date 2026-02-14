@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bitmagnet
+  namespace: torrent
+spec:
+  selector:
+    app: bitmagnet
+  ports:
+    - port: 3333
+      targetPort: 3333
+      name: gui
+    - protocol: tcp
+      port: 3334
+      targetPort: 3334
+    - protocol: udp
+      port: 3334
+      targetPort: 3334
+  type: ClusterIP
