@@ -26,11 +26,20 @@ spec:
                 secretKeyRef:
                   name: bitmagnet
                   key: POSTGRES_PASSWORD
+        command: ["bitmagnet"]
+        args:
+          - worker
+          - run
+          - --keys=http_server
+          - --keys=queue_server
+          - --keys=dht_crawler
         ports:
         - containerPort: 3333
           name: gui
         - containerPort: 3334
-          name: torrent
+          protocol: TCP
+        - containerPort: 3334
+          protocol: UDP
         volumeMounts:
           - mountPath: /root/.config/bitmagnet
             name: config
