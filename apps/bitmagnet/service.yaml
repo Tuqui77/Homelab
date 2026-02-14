@@ -9,13 +9,4 @@ spec:
   ports:
     - port: 3333
       targetPort: 3333
-      name: gui
-    - protocol: TCP
-      port: 3334
-      targetPort: 3334
-      name: torrent-tcp
-    - protocol: UDP
-      port: 3334
-      targetPort: 3334
-      name: torrent-udp
   type: ClusterIP
