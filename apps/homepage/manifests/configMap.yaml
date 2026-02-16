@@ -24,7 +24,7 @@ data:
     layout:
       Servicios:
         style: row
-        columns: 5
+        columns: 4
 
   custom.css: |
     .service-card {
@@ -68,10 +68,6 @@ data:
         - ArgoCD:
             icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/argo-cd.png
             href: https://argocd.tomasmerino.com
-            widget:
-              type: argocd
-              url: https://argocd.tomasmerino.com
-              key: argocdapikey
 
         - Qnap:
             icon: qnap.png
@@ -119,7 +115,7 @@ data:
 
         - Plex:
             icon: plex.png
-            href: http://192.168.100.156:32400/web
+            href: http://plex.tomasmerino.com/web
             widget:
               type: plex
               url: http://192.168.100.156:32400
@@ -143,17 +139,9 @@ data:
             icon: grafana.png
             href: https://grafana.tomasmerino.com
 
-        - n8n:
-            icon: n8n.png
-            href: https://n8n.tomasmerino.com
-
         - Paperless:
             icon: paperless.png
             href: https://paperless.tomasmerino.com
-            widget:
-              type: paperlessngx
-              url: https://paperless.tomasmerino.com
-              key: {{HOMEPAGE_VAR_PAPERLESS_API_KEY}}
 
         - BookLore:
             icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/booklore.png
@@ -176,6 +164,9 @@ data:
             icon: qbittorrent.png
             href: https://qbittorrent.tomasmerino.com
 
+        - BitMagnet:
+            icon: bitmagnet.png
+            href: https://bitmagnet.tomasmerino.com
 
   widgets.yaml: |
     - kubernetes:
