@@ -21,8 +21,12 @@ This repository contains the GitOps definition of my homelab based on Kubernetes
 - **Hypervisor**: Proxmox VE
 - **Host Hardware**: Ryzen 5 5600G, 32GB DDR4, 480GB SSD
 - **Kubernetes Cluster**:
-    - 1x Control Plane (8GB RAM)
-    - 2x Worker Nodes (8GB RAM each)
+- Contol Plane:
+    - k8s-master-01 (8GB RAM)
+- Workers:
+    - k8s-worker-01 (8GB RAM)
+    - k8s-worker-02 (8GB RAM)
+    - k8s-worker-03 (8GB RAM)
 - **OS**: Talos Linux
 
 ### Network & Storage
@@ -34,25 +38,28 @@ This repository contains the GitOps definition of my homelab based on Kubernetes
 
 Currently everything (cluster, NAS and my desktop PC) is working directly from the ISP router's switch. Lately it's been struggling a little with big file transfers, even crashing the internet connection. I have to get a dedicated switch as soon as possible.
 
+13/02: A couple of days ago, node k8s-worker-02 entered a memory pressure state, eventually crashing the kubelet and the node being NotReady. Even though a restart recovered the node I decided to:
+- Add another node (k8s-worker-03)
+- Remove the NoSchedule taint from k8s-master-01 so it's able to run workloads too
+- Reserve resources for the system and kubernetes (500m/1Gi each), so workloads wouldn't slow/starve them
+
+This greatly improves workload distribution and reduces the chances of another OOM crash 
+
 ---
 
 ## Applications
 
 - **ArgoCD** - GitOps management
 - **Immich** - Photo management
-- **Plex** - Media server
-
-    Problem: when using an HTTPRoute to access the service through the gateway, Plex detected the connection as remote access instead of local network traffic. This caused the streaming to require Plex Pass.
-
-    Solution: modified the Deployment to use hostNetwork, allowing Plex to see the real client IP and treat traffic as local. The downside is that the namespace has to be privileged to allow it.
-  
-- **n8n** - Workflow automation
+- **Plex** - Media server  
 - **Paperless-ngx** - Document management
 - **Homepage** - Dashboard
 - **Linkding** - Bookmark manager
 - **LubeLogger** - Vehicle maintenance tracker
 - **Booklore** - Book management
 - **AdGuard Home** - Backup DNS server
+- **qBittorrent** - P2P client
+- **bitmagnet** - BitTorrent indexer
 
 ---
 
