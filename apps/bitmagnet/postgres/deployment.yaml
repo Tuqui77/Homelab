@@ -30,3 +30,10 @@ spec:
                 key: PGUSER
           - name: POSTGRES_DB
             value: bitmagnet
+        volumeMounts:
+          - mountPath: /var/lib/postgresql/data
+            name: data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: postgres-data
