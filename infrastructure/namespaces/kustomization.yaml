@@ -16,3 +16,4 @@ resources:
   - paperless.yaml
   - books.yaml
   - torrent.yaml
+  - job-ops.yaml

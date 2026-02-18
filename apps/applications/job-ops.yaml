@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gateway-api-crds
+  name: job-ops
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://github.com/kubernetes-sigs/gateway-api
-    targetRevision: v1.1.0
-    path: config/crd/standard
+    repoURL: https://github.com/Tuqui77/Homelab.git
+    targetRevision: Main
+    path: apps/job-ops
   destination:
     server: https://kubernetes.default.svc
-    namespace: kube-system
+    namespace: job-ops
   syncPolicy:
     automated:
       prune: true

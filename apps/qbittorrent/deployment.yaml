@@ -16,15 +16,15 @@ spec:
         app: qbittorrent
     spec:
       containers:
-      - name: qbittorrent
-        image: linuxserver/qbittorrent:20.04.1
-        ports:
-        - containerPort: 8080
-        volumeMounts:
-          - name: downloads
-            mountPath: /downloads
-          - name: config
-            mountPath: /config
+        - name: qbittorrent
+          image: linuxserver/qbittorrent:20.04.1
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: downloads
+              mountPath: /downloads
+            - name: config
+              mountPath: /config
       volumes:
         - name: downloads
           persistentVolumeClaim:
