@@ -15,24 +15,24 @@ spec:
         app: postgres
     spec:
       containers:
-      - name: postgres
-        image: postgres:16-alpine
-        env:
-          - name: POSTGRES_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: bitmagnet
-                key: POSTGRES_PASSWORD
-          - name: PGUSER
-            valueFrom:
-              secretKeyRef:
-                name: bitmagnet
-                key: PGUSER
-          - name: POSTGRES_DB
-            value: bitmagnet
-        volumeMounts:
-          - mountPath: /var/lib/postgresql/data
-            name: data
+        - name: postgres
+          image: postgres:16-alpine
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: bitmagnet
+                  key: POSTGRES_PASSWORD
+            - name: PGUSER
+              valueFrom:
+                secretKeyRef:
+                  name: bitmagnet
+                  key: PGUSER
+            - name: POSTGRES_DB
+              value: bitmagnet
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: data
       volumes:
         - name: data
           persistentVolumeClaim:
