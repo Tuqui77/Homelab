@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: job-ops
-          image: ghcr.io/dakheera47/job-ops:v0.1.22
+          image: ghcr.io/dakheera47/job-ops:v0.1.23
           ports:
             - containerPort: 3001
           env:
