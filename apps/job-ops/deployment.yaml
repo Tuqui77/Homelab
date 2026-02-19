@@ -28,7 +28,7 @@ spec:
             - name: NODE_ENV
               value: "production"
           volumeMounts:
-            - mountPath: /data
+            - mountPath: /app/data
               name: data
       volumes:
         - name: data
