@@ -168,6 +168,10 @@ data:
             icon: bitmagnet.png
             href: https://bitmagnet.tomasmerino.com
 
+        - Job-Ops:
+            icon: https://jobops.dakheera47.com/docs/img/favicon.png
+            href: http://job-ops.tomasmerino.com
+
   widgets.yaml: |
     - kubernetes:
         cluster:
