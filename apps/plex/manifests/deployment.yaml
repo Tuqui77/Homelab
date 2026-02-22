@@ -19,6 +19,8 @@ spec:
           env:
             - name: ALLOWED_NETWORKS
               value: "192.168.100.0/24"
+            - name: TZ
+              value: "America/Argentina/Buenos_Aires"
           ports:
             - containerPort: 32400
           volumeMounts:
