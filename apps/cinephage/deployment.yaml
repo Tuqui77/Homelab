@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cinephage
+  namespace: media
+  labels:
+    app: cinephage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cinephage
+  template:
+    metadata:
+      labels:
+        app: cinephage
+    spec:
+      containers:
+        - name: cinephage
+          image: ghcr.io/moldytaint/cinephage:sha-df48e78
+          ports:
+            - containerPort: 3000
+          env:
+            - name: TZ
+              value: America/Argentina/Buenos_Aires
+            - name: ORIGIN
+              value: "cinephage.tomasmerino.com"
+          volumeMounts:
+            - mountPath: /config
+              name: config
+            - mountPath: /media
+              name: media
+            - mountPath: /downloads
+              name: downloads
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: cinephage-config
+        - name: media
+          persistentVolumeClaim:
+            claimName: plex-media
+        - name: downloads
+          persistentVolumeClaim:
+            claimName: qbittorrent-downloads
