@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: qbittorrent
-  namespace: torrent
+  namespace: media
   labels:
     app: qbittorrent
 spec:
