@@ -24,7 +24,7 @@ spec:
             - name: TZ
               value: America/Argentina/Buenos_Aires
             - name: ORIGIN
-              value: "cinephage.tomasmerino.com"
+              value: "https://cinephage.tomasmerino.com"
           volumeMounts:
             - mountPath: /config
               name: config
