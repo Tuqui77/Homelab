@@ -22,9 +22,9 @@ spec:
             - containerPort: 9091
           env:
             - name: PUID
-              value: 1000
+              value: "1000"
             - name: PGID
-              value: 1000
+              value: "1000"
             - name: TZ
               value: America/Argentina/Buenos_Aires
           volumeMounts:
