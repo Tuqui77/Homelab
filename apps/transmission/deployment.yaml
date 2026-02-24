@@ -16,7 +16,7 @@ spec:
         app: transmission
     spec:
       containers:
-        - name:
+        - name: transmission
           image: lscr.io/linuxserver/transmission:4.1.0
           ports:
             - containerPort: 9091
