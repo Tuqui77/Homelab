@@ -115,7 +115,7 @@ data:
 
         - Plex:
             icon: plex.png
-            href: http://plex.tomasmerino.com/web
+            href: https://plex.tomasmerino.com/web
             widget:
               type: plex
               url: http://192.168.100.156:32400
@@ -160,6 +160,10 @@ data:
               url: https://uptime-kuma.tomasmerino.com
               slug: homelab
 
+        - Cinephage:
+            icon: https://cinephage.tomasmerino.com/logo.png
+            href: https://cinephage.tomasmerino.com
+
         - qbittorrent:
             icon: qbittorrent.png
             href: https://qbittorrent.tomasmerino.com
@@ -170,7 +174,7 @@ data:
 
         - Job-Ops:
             icon: https://jobops.dakheera47.com/docs/img/favicon.png
-            href: http://job-ops.tomasmerino.com
+            href: https://job-ops.tomasmerino.com
 
   widgets.yaml: |
     - kubernetes:
