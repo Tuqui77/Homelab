@@ -121,6 +121,18 @@ data:
               url: http://192.168.100.156:32400
               key: {{HOMEPAGE_VAR_PLEX_API_KEY}}
 
+        - Jellyfin:
+            icon: jellyfin.png
+            href: https://jellyfin.tomasmerino.com
+            widget:
+              type: jellyfin
+              url: https://jellyfin.tomasmerino.com
+              key: {{HOMEPAGE_VAR_JELLYFIN_KEY}}
+              version: 2
+              enableBlocks: true
+              enableNowPlaying: false
+              enableMediaControl: false
+
         - Linkding:
             icon: linkding.png
             href: https://linkding.tomasmerino.com
@@ -164,9 +176,9 @@ data:
             icon: https://cinephage.tomasmerino.com/logo.png
             href: https://cinephage.tomasmerino.com
 
-        - qbittorrent:
-            icon: qbittorrent.png
-            href: https://qbittorrent.tomasmerino.com
+        - transmission:
+            icon: transmission.png
+            href: https://transmission.tomasmerino.com
 
         - BitMagnet:
             icon: bitmagnet.png
