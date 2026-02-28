@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cinephage-dev
+  namespace: media
+  labels:
+    app: cinephage-dev
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: cinephage-dev
+  template:
+    metadata:
+      labels:
+        app: cinephage-dev
+    spec:
+      containers:
+        - name: cinephage-dev
+          image: ghcr.io/keonramses/cinephage:dev-20260228-178
+          ports:
+            - containerPort: 3000
+          env:
+            - name: TZ
+              value: America/Argentina/Buenos_Aires
+            - name: ORIGIN
+              value: "https://cinephage-dev.tomasmerino.com"
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            periodSeconds: 5
+            failureThreshold: 10
+            timeoutSeconds: 2
+          volumeMounts:
+            - mountPath: /config
+              name: config
+            - mountPath: /media
+              name: media
+            - mountPath: /qb-downloads
+              name: qb-downloads
+            - mountPath: /tm-downloads
+              name: tm-downloads
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: cinephage-dev-config
+        - name: media
+          persistentVolumeClaim:
+            claimName: plex-media
+        - name: qb-downloads
+          persistentVolumeClaim:
+            claimName: qbittorrent-downloads
+        - name: tm-downloads
+          persistentVolumeClaim:
+            claimName: transmission-downloads
