@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: booklore
-          image: booklore/booklore:v2.0.3
+          image: booklore/booklore:v2.0.4
           ports:
             - containerPort: 6060
           env:
