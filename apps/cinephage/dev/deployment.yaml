@@ -37,8 +37,6 @@ spec:
               name: config
             - mountPath: /media
               name: media
-            - mountPath: /qb-downloads
-              name: qb-downloads
             - mountPath: /tm-downloads
               name: tm-downloads
       volumes:
@@ -48,9 +46,6 @@ spec:
         - name: media
           persistentVolumeClaim:
             claimName: plex-media
-        - name: qb-downloads
-          persistentVolumeClaim:
-            claimName: qbittorrent-downloads
         - name: tm-downloads
           persistentVolumeClaim:
             claimName: transmission-downloads
