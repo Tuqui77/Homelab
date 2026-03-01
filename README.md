@@ -51,15 +51,19 @@ This greatly improves workload distribution and reduces the chances of another O
 
 - **ArgoCD** - GitOps management
 - **Immich** - Photo management
-- **Plex** - Media server  
+- ~~**Plex** - Media server~~ Disabled
+- **Jellyfin** - Media server
+- **Cinephage** - AIO media server management tool
 - **Paperless-ngx** - Document management
 - **Homepage** - Dashboard
 - **Linkding** - Bookmark manager
 - **LubeLogger** - Vehicle maintenance tracker
 - **Booklore** - Book management
 - **AdGuard Home** - Backup DNS server
-- **qBittorrent** - P2P client
+- ~~**qBittorrent** - P2P client~~ Disabled
+- **Transmission** - P2P client
 - **bitmagnet** - BitTorrent indexer
+- **Job-Ops** - Job hunting pipeline
 
 ---
 
