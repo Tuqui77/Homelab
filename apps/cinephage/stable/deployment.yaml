@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: cinephage
-          image: ghcr.io/moldytaint/cinephage:latest@sha256:47a65aa990e45d0d6807a52c5b37b3d321ad085fbb5968b198e7118dc269da5e
+          image: ghcr.io/moldytaint/cinephage:latest@sha256:33af5d721e1a3badb0d9480eb258afadbb8a6546b0177696c459c548c192ced2
           ports:
             - containerPort: 3000
           env:
