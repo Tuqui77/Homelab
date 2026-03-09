@@ -37,7 +37,7 @@ Chronological sequence of events.
 
 | Time (GMT-3) | Event|
 | ---------- | --------------------- |
-|12:00Incident begin|
+|12:00|Incident begin|
 |12:35|Power back u|
 |12:41|Detection|
 |18:00|Investigation started|
