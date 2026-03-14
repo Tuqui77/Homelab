@@ -6,7 +6,7 @@ metadata:
   labels:
     app: cinephage
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: cinephage
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: cinephage
-          image: ghcr.io/moldytaint/cinephage:latest@sha256:b0f05b80d501233c31e7e2019f266fede15d087075d69455b2624a8a65e9375c
+          image: ghcr.io/moldytaint/cinephage:dev@sha256:fc94342a49de1918ea2e110a0b02bc792dba7740653246afc8fac981e4e4b29c
           ports:
             - containerPort: 3000
           env:
