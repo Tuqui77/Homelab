@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: cinephage-dev
-          image: ghcr.io/keonramses/cinephage:dev-20260228-178
+          image: ghcr.io/keonramses/cinephage:dev-20260313-215
           ports:
             - containerPort: 3000
           env:
