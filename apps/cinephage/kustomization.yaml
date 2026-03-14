@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - stable/deployment.yaml
   - stable/pvc.yaml
+  - stable/pvc-test.yaml
   - stable/route.yaml
   - stable/service.yaml
 

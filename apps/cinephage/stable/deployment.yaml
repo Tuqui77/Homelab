@@ -52,7 +52,7 @@ spec:
       volumes:
         - name: config
           persistentVolumeClaim:
-            claimName: cinephage-config
+            claimName: cinephage-config-test
         - name: media
           persistentVolumeClaim:
             claimName: plex-media
