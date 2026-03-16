@@ -7,5 +7,5 @@ spec:
   selector:
     app: kavita
   ports:
-    - port: 50000
+    - port: 5000
       targetPort: 5000
