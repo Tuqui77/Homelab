@@ -34,8 +34,8 @@ spec:
               path: /api/health
               port: 3000
             periodSeconds: 20
-            failureThreshold: 3
-            timeoutSeconds: 5
+            failureThreshold: 5
+            timeoutSeconds: 10
           startupProbe:
             httpGet:
               path: /
