@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
- name: infra-storage
- namespace: argocd
+  name: infra-storage
+  namespace: argocd
 spec:
- project: default
- source:
-   repoURL: https://github.com/Tuqui77/Homelab.git
-   targetRevision: Main
-   path: infrastructure/storage/pvc
- destination:
-   server: https://kubernetes.default.svc
-   namespace: default
- syncPolicy:
-   automated:
-     prune: true
-     selfHeal: true
+  project: default
+  source:
+    repoURL: https://github.com/Tuqui77/Homelab.git
+    targetRevision: Main
+    path: infrastructure/storage/pvc
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
