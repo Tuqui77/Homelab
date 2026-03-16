@@ -31,7 +31,7 @@ spec:
               value: "https://cinephage.tomasmerino.com"
           livenessProbe:
             httpGet:
-              path: /
+              path: /api/health
               port: 3000
             periodSeconds: 20
             failureThreshold: 3
