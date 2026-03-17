@@ -50,7 +50,7 @@ spec:
             claimName: booklore-data
         - name: books
           persistentVolumeClaim:
-            claimName: booklore-books
+            claimName: books
         - name: bookdrop
           persistentVolumeClaim:
             claimName: booklore-bookdrop
