@@ -7,6 +7,8 @@ metadata:
     app: booklore
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: booklore
@@ -15,6 +17,8 @@ spec:
       labels:
         app: booklore
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: k8s-worker-01
       containers:
         - name: booklore
           image: booklore/booklore:v2.2.1
