@@ -29,6 +29,11 @@ spec:
               value: America/Argentina/Buenos_Aires
             - name: ORIGIN
               value: "https://cinephage.tomasmerino.com"
+            - name: BETTER_AUTH_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: cinephage
+                  key: BETTER_AUTH_SECRET
           livenessProbe:
             httpGet:
               path: /api/health
