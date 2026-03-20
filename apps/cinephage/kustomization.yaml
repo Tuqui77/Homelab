@@ -7,6 +7,7 @@ resources:
   - stable/pvc-test.yaml
   - stable/route.yaml
   - stable/service.yaml
+  - stable/sealed-secret.yaml
 
   # resources for dev testing:
   - dev/deployment.yaml
