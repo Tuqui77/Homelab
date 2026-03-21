@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grimmory
+  namespace: books
+  labels:
+    app: grimmory
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grimmory
+  template:
+    metadata:
+      labels:
+        app: grimmory
+    spec:
+      containers:
+        - name: grimmory
+          image: grimmory-tools/grimmory:v2.3.0
+          ports:
+            - containerPort: 6060
+          env:
+            - name: BOOKLORE_PORT
+              value: "6060"
+            - name: TZ
+              value: America/Argentina/Buenos_Aires
+            - name: DATABASE_URL
+              value: jdbc:mariadb://mariadb:3306/booklore
+            - name: DATABASE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: booklore
+                  key: DB_USER
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: booklore
+                  key: DB_PASSWORD
+          volumeMounts:
+            - mountPath: /app/data
+              name: data
+            - mountPath: /books
+              name: books
+            - mountPath: /bookdrop
+              name: bookdrop
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: grimmory-data
+        - name: books
+          persistentVolumeClaim:
+            claimName: books
+        - name: bookdrop
+          persistentVolumeClaim:
+            claimName: grimmory-bookdrop
