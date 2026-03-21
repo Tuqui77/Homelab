@@ -26,16 +26,16 @@ spec:
             - name: TZ
               value: America/Argentina/Buenos_Aires
             - name: DATABASE_URL
-              value: jdbc:mariadb://mariadb:3306/booklore
+              value: jdbc:mariadb://mariadb:3306/grimmory
             - name: DATABASE_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: booklore
+                  name: grimmory
                   key: DB_USER
             - name: DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: booklore
+                  name: grimmory
                   key: DB_PASSWORD
           volumeMounts:
             - mountPath: /app/data
