@@ -3,6 +3,9 @@ kind: Application
 metadata:
   name: booklore
   namespace: argocd
+  annotations:
+    infra.tomasmerino.com/status: "disabled"
+    infra.tomasmerino.com/reason: "Replaced with grimmory as project died"
 spec:
   project: default
   source:
