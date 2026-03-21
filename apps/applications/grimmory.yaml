@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
- name: grimmory
- namespace: argocd
+  name: grimmory
+  namespace: argocd
 spec:
- project: default
- source:
-   repoURL: https://github.com/Tuqui77/Homelab.git
-   targetRevision: Main
-   path: apps/grimmory
- destination:
-   server: https://kubernetes.default.svc
-   namespace: books
- syncPolicy:
-   automated:
-     prune: true
-     selfHeal: true
+  project: default
+  source:
+    repoURL: https://github.com/Tuqui77/Homelab.git
+    targetRevision: Main
+    path: apps/grimmory
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: books
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
