@@ -147,12 +147,12 @@ data:
             icon: paperless.png
             href: https://paperless.tomasmerino.com
 
-        - BookLore:
+        - Grimmory:
             icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/booklore.png
-            href: https://booklore.tomasmerino.com
+            href: https://grimmory.tomasmerino.com
             widget:
               type: booklore
-              url: https://booklore.tomasmerino.com
+              url: https://grimmory.tomasmerino.com
               username: Tuqui
               password: {{HOMEPAGE_VAR_BOOKLORE_PASS}}
 
