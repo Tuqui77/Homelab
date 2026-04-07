@@ -23,8 +23,22 @@ data:
 
     layout:
       Servicios:
+        tab: Servicios
+        header: false
         style: row
         columns: 4
+
+      Homelab:
+        tab: Homelab
+        header: false
+        style: row
+        columns: 3
+
+      Networking:
+        tab: Networking
+        header: false
+        style: row
+        columns: 3
 
   custom.css: |
     .service-card {
