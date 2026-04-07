@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: microservices
-          image: ghcr.io/immich-app/immich-server:v2.6.1
+          image: ghcr.io/immich-app/immich-server:v2.6.3
           args: ["start.sh", "microservices"]
           env:
             - name: UPLOAD_LOCATION
