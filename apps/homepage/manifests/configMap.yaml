@@ -20,6 +20,7 @@ data:
     target: _self
     statusStyle: "dot"
     language: es
+    headerStyle: clean
 
     layout:
       Servicios:
@@ -195,25 +196,16 @@ data:
             href: https://job-ops.tomasmerino.com
 
   widgets.yaml: |
-    - kubernetes:
-        cluster:
-          show: true
-          cpu: true
-          memory: true
-          showLabel: true
-          label: "cluster"
-        nodes:
-          show: true
-          cpu: true
-          memory: true
-          showLabel: true
-    - resources:
-        backend: resources
-        expanded: true
-        cpu: true
-        memory: true
-        network: default
     - search:
         provider: google
         target: _self
+    - openmeteo:
+        label: Argentina
+        latitude: -34.6037
+        longitude: -58.3816
+        timezone: America/Argentina/Buenos_Aires
+        units: metric
+        cache: 5
+        format: # optional, Intl.NumberFormat options
+          maximumFractionDigits: 1
   docker.yaml: ""
