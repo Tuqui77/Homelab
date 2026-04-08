@@ -8,7 +8,7 @@ on:
 jobs:
   generate-pr-description:
     runs-on: ubuntu-latest
-    permission:
+    permissions:
       contents: read
       pull-requests: write
       issues: write
