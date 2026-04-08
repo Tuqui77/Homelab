@@ -24,7 +24,7 @@ jobs:
         uses: 57blocks/ai-powered-pr-description-generator@1.1.0
         with:
           ai_name: 'gemini'
-          model_name: 'gemini-1.5-flash-latest'
+          model: 'gemini-1.5-flash-latest'
           api_key: ${{ secrets.GEMINI_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           use_jira: false
