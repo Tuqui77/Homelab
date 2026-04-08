@@ -1,0 +1,28 @@
+name: AI-powered PR Description Generator
+
+on:
+  pull_request:
+    branches: [main]
+
+
+jobs:
+  generate-pr-description:
+    runs-on: ubuntu-latest
+    permission:
+      contents: read
+      pull-requests: write
+      issues: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: AI-Powered PR Description Generator
+        uses: 57blocks/ai-powered-pr-description-generator@1.1.0
+        with:
+          ai_name: 'gemini'
+          api_key: ${{ secrets.GEMINI_API_KEY }}
+          github_token: ${{ secrets.PR-Generator }}
+          use_jira: false
