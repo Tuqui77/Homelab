@@ -20,11 +20,26 @@ data:
     target: _self
     statusStyle: "dot"
     language: es
+    headerStyle: clean
 
     layout:
       Servicios:
+        tab: Servicios
+        header: false
         style: row
         columns: 4
+
+      Homelab:
+        tab: Homelab
+        header: false
+        style: row
+        columns: 3
+
+      Networking:
+        tab: Networking
+        header: false
+        style: row
+        columns: 3
 
   custom.css: |
     .service-card {
@@ -148,7 +163,7 @@ data:
             href: https://paperless.tomasmerino.com
 
         - Grimmory:
-            icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/booklore.png
+            icon: https://avatars.githubusercontent.com/u/267772089?s=48&v=4
             href: https://grimmory.tomasmerino.com
             widget:
               type: booklore
@@ -181,25 +196,16 @@ data:
             href: https://job-ops.tomasmerino.com
 
   widgets.yaml: |
-    - kubernetes:
-        cluster:
-          show: true
-          cpu: true
-          memory: true
-          showLabel: true
-          label: "cluster"
-        nodes:
-          show: true
-          cpu: true
-          memory: true
-          showLabel: true
-    - resources:
-        backend: resources
-        expanded: true
-        cpu: true
-        memory: true
-        network: default
     - search:
         provider: google
         target: _self
+    - openmeteo:
+        label: Argentina
+        latitude: -34.6037
+        longitude: -58.3816
+        timezone: America/Argentina/Buenos_Aires
+        units: metric
+        cache: 5
+        format: # optional, Intl.NumberFormat options
+          maximumFractionDigits: 1
   docker.yaml: ""
