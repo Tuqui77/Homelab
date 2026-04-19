@@ -43,7 +43,7 @@ spec:
             timeoutSeconds: 10
           startupProbe:
             httpGet:
-              path: /
+              path: /api/health
               port: 3000
             initialDelaySeconds: 120
             failureThreshold: 12
