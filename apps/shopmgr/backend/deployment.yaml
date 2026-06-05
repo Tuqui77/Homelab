@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: shopmgr
+  labels:
+    app: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: ghcr.io/tuqui77/shopmgr_backend:0.2.4
+          env:
+            - name: Jwt__Token
+              valueFrom:
+                secretKeyRef:
+                  name: shopmgr
+                  key: Jwt__Token
+            - name: ConnectionStrings__ShopMGRDbContexto
+              valueFrom:
+                secretKeyRef:
+                  name: shopmgr
+                  key: ConnectionStrings__ShopMGRDbContexto
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - mountPath: /app/imagenes
+              name: imagenes
+      volumes:
+        - name: imagenes
+          persistentVolumeClaim:
+            claimName: backend
