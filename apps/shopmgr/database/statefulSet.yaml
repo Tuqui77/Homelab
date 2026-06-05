@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mssqls
+  namespace: shopmgr
+  labels:
+    app: mssqls
+spec:
+  serviceName: db
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mssqls
+  template:
+    metadata:
+      labels:
+        app: mssqls
+    spec:
+      securityContext:
+        fsGroup: 10001
+      containers:
+        - name: mssqls
+          image: mcr.microsoft.com/mssql/server:2022-CU24-GDR1-ubuntu-22.04
+          ports:
+            - containerPort: 1433
+          env:
+            - name: ACCEPT_EULA
+              value: "Y"
+            - name: MSSQL_SA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: shopmgr
+                  key: MSSQL_SA_PASSWORD
+          volumeMounts:
+            - mountPath: /var/opt/mssql/data
+              name: database
+      volumes:
+        - name: database
+          persistentVolumeClaim:
+            claimName: mssqls

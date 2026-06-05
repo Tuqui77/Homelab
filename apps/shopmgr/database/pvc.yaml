@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mssqls
+  namespace: shopmgr
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs-homelab
+  resources:
+    requests:
+      storage: 2Gi
