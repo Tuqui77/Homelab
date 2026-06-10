@@ -197,7 +197,8 @@ data:
 
   widgets.yaml: |
     - search:
-        provider: google
+        provider: custom
+        url: https://noai.duckduckgo.com/?q=
         target: _self
     - openmeteo:
         label: Argentina
