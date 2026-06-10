@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: ghcr.io/tuqui77/shopmgr_frontend:0.2.4
+        image: ghcr.io/tuqui77/shopmgr_frontend:0.3.0
         ports:
         - containerPort: 80
         volumeMounts:
