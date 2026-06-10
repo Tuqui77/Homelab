@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: ghcr.io/tuqui77/shopmgr_backend:0.2.4
+          image: ghcr.io/tuqui77/shopmgr_backend:0.3.0
           env:
             - name: Jwt__Token
               valueFrom:
