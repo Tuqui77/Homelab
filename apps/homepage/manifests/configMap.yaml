@@ -67,6 +67,12 @@ data:
         - MercadoPago:
             - abbr: MP
               href: https://mercadopago.com.ar
+        - Maps:
+            - abbr: MA
+              href: https://maps.google.com
+        - Google Translate:
+            - abbr: TR
+              href: https://translate.google.com
 
   services.yaml: |
     - Homelab:
@@ -194,6 +200,10 @@ data:
         - Job-Ops:
             icon: https://jobops.dakheera47.com/docs/img/favicon.png
             href: https://job-ops.tomasmerino.com
+
+        - ShopMGR:
+            icon: https://shopmgr.tomasmerino.com/favicon.svg
+            href: https://shopmgr.tomasmerino.com
 
   widgets.yaml: |
     - search:
