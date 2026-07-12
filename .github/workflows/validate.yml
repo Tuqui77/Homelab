@@ -9,7 +9,7 @@ jobs:
   kubeconform:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: yokawasa/action-setup-kube-tools@v0.13.1
         with:
           setup-tools: |
@@ -31,7 +31,7 @@ jobs:
   yaml-lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - run: |
           pip install yamllint
           yamllint -d relaxed apps/ infrastructure/
