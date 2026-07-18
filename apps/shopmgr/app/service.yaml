@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend
+  name: shopmgr
   namespace: shopmgr
 spec:
   selector:
-    app: backend
+    app: shopmgr
   ports:
     - port: 80
       targetPort: 80
