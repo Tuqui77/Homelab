@@ -34,6 +34,11 @@ spec:
               value: spa
             - name: PAPERLESS_OCR_LANGUAGES
               value: eng
+            - name: PAPERLESS_SECRET_KEY
+              valueFrom:
+                  secretKeyRef:
+                    name: paperless
+                    key: PAPERLESS_SECRET_KEY
           volumeMounts:
             - mountPath: /usr/src/paperless/data
               name: data

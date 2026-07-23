@@ -12,3 +12,4 @@ resources:
   - webserver/pvc-media.yaml
   - webserver/route.yaml
   - webserver/service.yaml
+  - webserver/sealed-secret.yaml
