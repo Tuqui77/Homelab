@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: shopmgr
-          image: ghcr.io/tuqui77/shopmgr:0.12.1
+          image: ghcr.io/tuqui77/shopmgr:0.17.0
           env:
             - name: Jwt__Token
               valueFrom:
