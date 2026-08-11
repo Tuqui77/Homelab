@@ -29,6 +29,16 @@ spec:
                 secretKeyRef:
                   name: shopmgr
                   key: ConnectionStrings__ShopMGRDbContexto
+            - name: ADMIN_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: shopmgr
+                  key: ADMIN_USERNAME
+            - name: ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: shopmgr
+                  key: ADMIN_PASSWORD
           ports:
             - containerPort: 80
           volumeMounts:
